@@ -42,12 +42,3 @@ class Stack{
         return data.size();
     }
 };
-
-int main(){
-    Stack<char> stack;
-    stack.push('a');
-    stack.push('b');
-    stack.push('c');
-
-    std::cout << "Stack size: " << stack.stack_size() << std::endl;
-}
