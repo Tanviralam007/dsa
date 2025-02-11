@@ -1,4 +1,5 @@
 // basic queue
+#include <iostream>
 #include <vector>
 
 template <typename T>
