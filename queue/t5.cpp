@@ -1,4 +1,4 @@
-// circular queue usig linked list
+// circular queue using linked list
 #include <iostream>
 
 template <typename T>
