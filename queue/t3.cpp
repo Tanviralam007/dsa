@@ -43,8 +43,7 @@ class Queue{
         front = front->next;
         delete temp;
 
-        if(front == nullptr) 
-            rear = nullptr;
+        if(front == nullptr) rear = nullptr;
         
         return value;
     }
