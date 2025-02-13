@@ -109,6 +109,34 @@ void delete_from_end(){
 // head [1 | 0x1000] -> [1 | 0x1000] [2 | 0x1004] [3 | 0x1008] [4 | 0x100C] 
 // head -> [1 | 0x1004] -> [2 | 0x1008] -> [3 | 0x100C] -> nullptr
 
+// delete node at any position
+void delete_at_position(int position){
+    if(head == nullptr){
+        std::cout << "List is empty" << std::endl;
+        return;
+    }
+
+    // if there is only one node
+    if(head->next == nullptr){
+        delete head;
+        head = nullptr;
+        return;
+    }
+
+    Node* temp = head;
+    for(int i = 1; temp != nullptr && i < position - 1; i++){
+        temp = temp->next;
+        //std::cout << temp->data << " " << temp->next << std::endl;
+    }
+
+    Node* node_to_delete = temp->next;
+    temp->next = temp->next->next;
+    delete node_to_delete;
+}
+// head [1 | 0x1000] -> [1 | 0x1000] [2 | 0x1004] [3 | 0x1008] [4 | 0x100C] [5 | 0x1010]
+// exp: after deletion at position (3)
+// head -> [1 | 0x1004] -> [2 | 0x1008] -> [4 | 0x1010] -> nullptr
+
 void traverse_list(){
     Node* temp = head;
     std::cout << "\nlist: " << std::endl;
@@ -124,8 +152,8 @@ int main(){
     append(2);
     append(3);
     append(4);
+    append(5);
     traverse_list();
-    std::cout << std::endl;
 
     insert_at_beginning(0);
     traverse_list();
@@ -140,6 +168,10 @@ int main(){
     std::cout << std::endl;
     
     delete_from_end();
+    traverse_list();
+    std::cout << std::endl;
+
+    delete_at_position(3);
     traverse_list();
     std::cout << std::endl;
 
