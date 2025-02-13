@@ -59,6 +59,18 @@ void insert_at_position(int value, int position){
     }
 }
 
+/*
+0 0x717900
+
+1 0x717930
+2 0x717940
+3 0x717950
+
+0x717950
+0x717970
+Linked list: 0 1 2 3 4 5
+*/
+
 void traverse_list(){
     Node* temp = head;
     while(temp != nullptr){
@@ -73,14 +85,14 @@ int main(){
     append(2);
     append(3);
     append(5);
-    std::cout << "Linked list: "; traverse_list();
+    std::cout << "list: "; traverse_list();
     std::cout << std::endl;
 
     insert_at_beginning(0);
-    std::cout << "Linked list: "; traverse_list();
+    std::cout << "list: "; traverse_list();
     std::cout << std::endl;
 
     insert_at_position(4, 3);
-    std::cout << "Linked list: "; traverse_list();
+    std::cout << "list: "; traverse_list();
     return 0;
 }
