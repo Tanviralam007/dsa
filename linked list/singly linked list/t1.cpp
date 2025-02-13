@@ -71,6 +71,18 @@ void insert_at_position(int value, int position){
 Linked list: 0 1 2 3 4 5
 */
 
+// delete at the beginning
+void delete_from_beginning(){
+    if(head == nullptr){
+        std::cout << "List is empty" << std::endl;
+        return;
+    } else{
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+    }
+}
+
 void traverse_list(){
     Node* temp = head;
     while(temp != nullptr){
@@ -94,5 +106,12 @@ int main(){
 
     insert_at_position(4, 3);
     std::cout << "list: "; traverse_list();
+    std::cout << std::endl;
+    
+    delete_from_beginning();
+    std::cout << "list: "; traverse_list();
+    std::cout << std::endl;
+    
+
     return 0;
 }
