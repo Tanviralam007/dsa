@@ -135,7 +135,37 @@ void delete_at_position(int position){
 }
 // head [1 | 0x1000] -> [1 | 0x1000] [2 | 0x1004] [3 | 0x1008] [4 | 0x100C] [5 | 0x1010]
 // exp: after deletion at position (3)
-// head -> [1 | 0x1004] -> [2 | 0x1008] -> [4 | 0x1010] -> nullptr
+// head -> [1 | 0x1004] -> [2 | 0x100C] -> [4 | 0x1010] -> nullptr
+
+// search for a node in the list
+void search_an_node(int value){
+    Node* temp = head;
+    int position = 0;
+    while (temp != nullptr){
+        if(temp->data == value){
+            std::cout << "Node found at position: " << position << std::endl;
+            return;
+        }
+        temp = temp->next;
+        position++;
+    }
+    std::cout << "Node not found" << std::endl;
+}
+
+// reverrse the list
+void reverse_list(){
+    Node* prev = nullptr;
+    Node* current = head;
+    Node* next = nullptr;
+
+    while(current != nullptr){
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    head = prev;
+}
 
 void traverse_list(){
     Node* temp = head;
@@ -155,25 +185,27 @@ int main(){
     append(5);
     traverse_list();
 
-    insert_at_beginning(0);
-    traverse_list();
-    std::cout << std::endl;
+    // insert_at_beginning(0);
+    // traverse_list();
+    // std::cout << std::endl;
 
-    insert_at_position(4, 3);
-    traverse_list();
-    std::cout << std::endl;
+    // insert_at_position(4, 3);
+    // traverse_list();
+    // std::cout << std::endl;
     
-    delete_from_beginning();
-    traverse_list();
-    std::cout << std::endl;
+    // delete_from_beginning();
+    // traverse_list();
+    // std::cout << std::endl;
     
-    delete_from_end();
-    traverse_list();
-    std::cout << std::endl;
+    // delete_from_end();
+    // traverse_list();
+    // std::cout << std::endl;
 
-    delete_at_position(3);
-    traverse_list();
-    std::cout << std::endl;
+    // delete_at_position(3);
+    // traverse_list();
+    // std::cout << std::endl;
+
+    search_an_node(30);
 
     return 0;
 }
