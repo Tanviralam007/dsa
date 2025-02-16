@@ -156,6 +156,7 @@ void search_an_node(int value){
 void reverse_list(){
     Node* prev = nullptr;
     Node* current = head;
+    // std::cout << "current:" << current->data << " " << current->next << std::endl;
     Node* next = nullptr;
 
     while(current != nullptr){
@@ -166,6 +167,21 @@ void reverse_list(){
     }
     head = prev;
 }
+/*
+head [0x1000] [1 | 0x2000]
+        [data | next]
+current [  1  | 0x2000]
+
+Address    Node (data)    Next Pointer
+0x1000  → [1] → 0x2000
+0x2000  → [2] → 0x3000
+0x3000  → [3] → 0x4000
+0x4000  → [4] → 0x5000
+0x5000  → [5] → nullptr
+
+
+
+*/
 
 void traverse_list(){
     Node* temp = head;
@@ -205,7 +221,8 @@ int main(){
     // traverse_list();
     // std::cout << std::endl;
 
-    search_an_node(30);
+    // search_an_node(30);
+    reverse_list(); traverse_list();
 
     return 0;
-}
+} 
