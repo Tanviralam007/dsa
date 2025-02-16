@@ -178,11 +178,31 @@ Address    Node (data)    Next Pointer
 0x3000  → [3] → 0x4000
 0x4000  → [4] → 0x5000
 0x5000  → [5] → nullptr
-
-
-
 */
 
+// update the value of a node
+void update_node(int position, int new_value){
+    if(position < 0){
+        std::cout << "Invalid position" << std::endl;
+        return;
+    }
+
+    Node* temp = head;
+    int index = 0;
+
+    while(temp != nullptr && index < position){
+        temp = temp->next;
+        index++;
+    }
+
+    if(temp == nullptr){
+        std::cout << "Invalid position" << std::endl;
+        return;
+    }
+    temp->data = new_value;
+}
+
+// traverse the list
 void traverse_list(){
     Node* temp = head;
     std::cout << "\nlist: " << std::endl;
@@ -192,37 +212,3 @@ void traverse_list(){
     }
     std::cout << std::endl;
 }
-
-int main(){
-    append(1);
-    append(2);
-    append(3);
-    append(4);
-    append(5);
-    traverse_list();
-
-    // insert_at_beginning(0);
-    // traverse_list();
-    // std::cout << std::endl;
-
-    // insert_at_position(4, 3);
-    // traverse_list();
-    // std::cout << std::endl;
-    
-    // delete_from_beginning();
-    // traverse_list();
-    // std::cout << std::endl;
-    
-    // delete_from_end();
-    // traverse_list();
-    // std::cout << std::endl;
-
-    // delete_at_position(3);
-    // traverse_list();
-    // std::cout << std::endl;
-
-    // search_an_node(30);
-    reverse_list(); traverse_list();
-
-    return 0;
-} 
